@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .flashcard {
+            width: 300px;
+            height: 200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .flashcard:hover {
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flashcard" id="flashcard">
+        <span id="question"></span>
+        <span id="answer" class="hidden"></span>
+    </div>
+    <button id="nextBtn">Volgende</button>
+
+    <script>
+        // Flashcard data
+        const cards = [
+            { question: "Wat is de hoofdstad van Nederland?", answer: "Amsterdam" },
+            { question: "Wat is 5 x 6?", answer: "30" },
+            { question: "Wie schreef 'De Kleine Prins'?", answer: "Antoine de Saint-Exupéry" }
+        ];
+
+        let currentIndex = 0;
+        let showingAnswer = false;
+
+        const questionEl = document.getElementById("question");
+        const answerEl = document.getElementById("answer");
+        const flashcardEl = document.getElementById("flashcard");
+        const nextBtn = document.getElementById("nextBtn");
+
+        // Functie om kaart te tonen
+        function showCard(index) {
+            questionEl.textContent = cards[index].question;
+            answerEl.textContent = cards[index].answer;
+            questionEl.classList.remove("hidden");
+            answerEl.classList.add("hidden");
+            showingAnswer = false;
+        }
+
+        // Klik op kaart → wissel tussen vraag en antwoord
+        flashcardEl.addEventListener("click", () => {
+            if (showingAnswer) {
+                questionEl.classList.remove("hidden");
+                answerEl.classList.add("hidden");
+            } else {
+                questionEl.classList.add("hidden");
+                answerEl.classList.remove("hidden");
+            }
+            showingAnswer = !showingAnswer;
+        });
+
+        // Volgende kaart
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % cards.length;
+            showCard(currentIndex);
+        });
+
+        // Start met eerste kaart
+        showCard(currentIndex);
+    </script>
+
+</body>
+</html>
