@@ -7,30 +7,35 @@
     </head>
     <body>
         <script>
-            function hoi(){
-              let hoi = prompt("Italiaans woord voor hoi");
-              return hoi
-            }
+
+            function beter(a){
+             let b = prompt("Italiaans woord voor "+a);
+              return b;
+            }   
+
             let A1 = "ciao" 
-            if (hoi()==A1){
+            if (beter("hoi")==A1){
                alert("ja");
             }
             else {
-                alert("nee")
+                alert("nee");
             }
             
-            function dankjewel(){
-              let dankjewel = prompt("Italiaans woord voor dankjewel");
-              return dankjewel
-            }
             let A2 = "grazie" 
-            if (dankjewel()==A2){
+            if (beter("dankjewel")==A2){
                alert("ja");
             }
             else {
-                alert("nee")
+                alert("nee");
             }
             
+            let A3 = "arrivederci" 
+            if (beter("tot ziens")==A3){
+               alert("ja");
+            }
+            else {
+                alert("nee");
+            }
         </script>
     </body>
 </html>
