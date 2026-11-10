@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>hoi</title>
+       
+        <title>Bezoekers chart</title>
     </head>
+    
+     
     <body>
+       
+
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
-             <canvas id="BezoekersCart" style="width:100%;max-width:700px"></canvas>
+             <canvas id="BezoekersChart" style="width:100%;max-width:700px"></canvas>
     
         <script>
-           const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
-const barColors = ["red", "green","purple","orange","brown"];
+           const xValues = ["Colosseum", "Trevi fontein", "Pantheon", "Vaticaanstad", "Altare della Patria"];
+          
+            const yValues = [14.7, 4, 4.1 , 6.8, 0.6];
+            const barColors = ["#007FFF", "#007FFF","#007FFF","#007FFF","#007FFF"];
+            /* Kleur van nationale sportteams */
+            
 
-const ctx = document.getElementById('BezoekersCart')
+
+                 /* https://www.w3schools.com/ai/ai_chartjs.asp*/
+
+            /* y values:
+            https://www.nieuwsblad.be/buitenland/toeristen-moeten-vanaf-2026-betalen-voor-trevifontein/114226094.html
+            https://www.cheaperthancars.com/data-hub/italy/statistics/attractions/colosseum-visitor-statistics/
+            https://roadgenius.com/statistics/tourism/italy/rome/the-pantheon/
+            https://roadgenius.com/statistics/tourism/italy/rome/the-pantheon/
+            https://italien.news/nl/reizen/latium/rom/altare-della-patria-in-rome/
+            */ 
+
+const ctx = document.getElementById('BezoekersChart')
 new Chart(ctx, {
   type: "bar",
   data: {
@@ -27,7 +46,7 @@ new Chart(ctx, {
       legend: {display: false},
       title: {
         display: true,
-        text: "World Wine Production 2018",
+        text: "Totaal aantal bezoekers 2024 (in mil)",
         font: {size: 16}
       }
     }
