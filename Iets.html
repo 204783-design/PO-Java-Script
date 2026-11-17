@@ -8,18 +8,20 @@
     <body>
         <script>
 
-            function beter(a){
-             let b = prompt("Italiaans woord voor "+a);
-              return b;
+            function beter(vraag,antwoord){
+             let b = prompt("Italiaans woord voor "+vraag);
+            
+                 
+             while(b!=antwoord){
+                b = prompt("Nee niet goed, geef het Italiaanse woord voor "+vraag);
+              }
+
+             alert("goed zo!");
+            
             }   
 
             let A1 = "ciao" 
-            if (beter("hoi")==A1){
-               alert("ja");
-            }
-            else {
-                alert("nee");
-            }
+            beter("hoi",A1);
             
             let A2 = "grazie" 
             if (beter("dankjewel")==A2){
